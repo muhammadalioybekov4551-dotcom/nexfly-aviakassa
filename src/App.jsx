@@ -66,7 +66,7 @@ function airlineFullName(code) {
 
 // Travelpayouts "prices_for_dates" API orqali haqiqiy (keshlangan) narxlarni oladi.
 async function fetchRealFlights(origin, destination, depDate) {
-  const url = `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${origin}&destination=${destination}&departure_at=${depDate}&one_way=true&direct=false&currency=usd&sorting=price&limit=15&token=${TP_TOKEN}`;
+  const url = `/api/prices?origin=${origin}&destination=${destination}&departure_at=${depDate}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("API xatosi: " + res.status);
   const json = await res.json();
